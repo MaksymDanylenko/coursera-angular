@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSliderModule} from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    MatSliderModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -69,8 +71,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     LeaderService
   ],
   bootstrap: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ]
 })
 export class AppModule { }
