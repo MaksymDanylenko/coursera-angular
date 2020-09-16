@@ -7,14 +7,14 @@
      fxLayoutGap.xs="0">
 
   <div fxFlex="40">
-    <div fxFlex *ngIf="dish">
+    <div fxFlex *ngIf="dish" [@visibility]="visibility" [@expand]>
       <mat-card>
         <mat-card-header>
           <mat-card-title>
             <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
           </mat-card-title>
         </mat-card-header>
-        <img mat-card-image src="{{dish.image}}" alt="{{dish.name}}">
+        <img mat-card-image src="{{BaseURL + dish.image}}" alt="{{dish.name}}">
         <mat-card-content>
           <p>{{dish.description}}
           </p>
@@ -29,12 +29,16 @@
       </mat-card>
     </div>
 
-    <div [hidden]="dish">
+    <div [hidden]="dish || errMsg">
       <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
+    <div fxFlex *ngIf="errMsg">
+      <h2>Error</h2>
+      <h4>{{errMsg}}</h4>
     </div>
   </div>
 
-  <div fxFlex="60" fxLayout="column" *ngIf="dish">
+  <div fxFlex="60" fxLayout="column" *ngIf="dish" [@visibility]="visibility">
 
       <h1>Comments</h1>
       <mat-list fxFlex>
